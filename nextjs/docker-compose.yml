@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  website-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: development
+    ports:
+      - 3000:3000
+    env_file: .env.local
+    container_name: website
+    command: yarn dev
+    volumes:
+      - .:/app
+      - /app/node_modules
